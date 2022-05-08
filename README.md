@@ -30,7 +30,7 @@ To contribute to this project please contact me, information is below.
 To test run: npm start
 
 ## Questions
-'This is my name and contact info. If you have questions, please reach out!'
+This is my name and contact info. If you have questions, please reach out!
 - :pencil2: Anita Chavez 
 - :octocat: [Neeta525](https://github.com/Neeta525)
 - :email: starry-days@hotmail.com
