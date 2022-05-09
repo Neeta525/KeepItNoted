@@ -8,7 +8,7 @@ const notes = require('./notes');
 const app = express();
 
 //notes router for /notes
-app.use('/notes', notesRouter);
+app.use('/notes', notes);
 
 //export the express app
 module.exports = app;

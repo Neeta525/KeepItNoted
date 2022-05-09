@@ -1,10 +1,10 @@
 //Start Express
 const express = require('express');
 const path = require('path');
-
-//import API router
-const api = require('./routes/index.js');
 const { clog } = require('./middleware/clog.js');
+//import API router
+const api = require('./routes');
+
 
 //define port
 const PORT =  process.env.port || 3001;
@@ -12,7 +12,7 @@ const PORT =  process.env.port || 3001;
 const app = express();
 
 
-app.use = express();
+// app.use = clog();
 
 //middleware parsing JSON and urlecoded form data
 app.use(express.json());
@@ -20,15 +20,15 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
-//get call to notes page
+app.use('/api', api);
+
+
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-
-app.use('/api', api);
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__direname, '/public/index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 //port/server listener 

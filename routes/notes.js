@@ -6,14 +6,15 @@ const { v4: uuidv4 } = require('uuid');
 
 const fs = require('fs');
 const path = require('path');
-const database = require('..db/db');
+const database = require('../db/db.json');
 
 //sets up router for notes path
 const notes = require('express').Router();
 
 //Get route for retrieving notes
 notes.get('/', (req, res) => {
-    readFromFile('.db/db.json').then((data) => res.json(JSON.parse(data)));
+    // readFromFile('../db/db.json').then((data) => res.json(JSON.parse(data)));
+    res.sendFile(path.join(__dirname, "../db/db.json"))
 });
 
 notes.post('/', (req, res) => {
@@ -27,8 +28,11 @@ notes.post('/', (req, res) => {
             text,
             id: uuidv4(),
         };
-        readAndAppend(newNote, './db/db.json');
-        res,json('Note added succesfully 📝');
+        // readAndAppend(newNote, './db/db.json');
+        database.push(newNote)
+        fs.writeFileSync("./db/db.json", JSON.stringify(database))
+        res.sendFile(path.join(__dirname, "../db/db.json"))
+        res.json('Note added succesfully 📝');
     } else {
         res.status(404).send('Error adding note');
     }
