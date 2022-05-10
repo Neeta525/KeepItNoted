@@ -21,7 +21,7 @@ This project will be used for taking Notes. The user can save notes and retrieve
 To install this project please clone it and then run: npm i
 
 ## Usage
-Screenshot 
+[NotedGIF](assets/KeepNoted.gif) 
 
 ## Contributing
 To contribute to this project please contact me, information is below.
