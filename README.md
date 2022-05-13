@@ -23,6 +23,8 @@ To install this project please clone it and then run: npm i
 ## Usage
 ![NotedGIF](assets/KeepNoted.gif) 
 
+[Deployed Link](https://morning-stream-54406.herokuapp.com/)
+
 ## Contributing
 To contribute to this project please contact me, information is below.
 
